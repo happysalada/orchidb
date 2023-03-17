@@ -301,7 +301,7 @@
           </dt>
           <dd class="mt-2 text-base leading-7 text-gray-600">
             By offering a centralised real time view of talent schedules, agents
-            can optimise time management ensuring their actors are always on the
+            can optimize time management ensuring their actors are always on the
             best project for the right film producer
           </dd>
         </div>
