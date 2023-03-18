@@ -13,7 +13,14 @@
         // Add any additional headers if needed
       },
       body: JSON.stringify({ firstName, lastName, location, company, email, phone, message}), // Convert the JavaScript object to a JSON string
-    });    
+    });
+    firstName = "";
+    lastName = "";
+    location = "";
+    company = "";
+    email = "";
+    phone = "";
+    message = "";
   }
 </script>
 <div class="bg-white">
