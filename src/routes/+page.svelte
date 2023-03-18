@@ -37,17 +37,14 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-          >Features</a
-        >
-
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-          >Company</a
+        <a
+          href="#features"
+          class="text-sm font-semibold leading-6 text-gray-900">Features</a
         >
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-          >Log in <span aria-hidden="true">&rarr;</span></a
+        <a href="#contact" class="text-sm font-semibold leading-6 text-gray-900"
+          >Contact us <span aria-hidden="true">&rarr;</span></a
         >
       </div>
     </nav>
@@ -217,7 +214,10 @@
         For small businesses of the future, stop wasting time shuffling tools.
       </p>
     </div>
-    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+    <div
+      id="features"
+      class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl"
+    >
       <dl
         class="grid max-w-xl grid-cols-1 gap-y-10 gap-x-8 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
       >
@@ -301,7 +301,7 @@
           </dt>
           <dd class="mt-2 text-base leading-7 text-gray-600">
             By offering a centralised real time view of talent schedules, agents
-            can optimize time management ensuring their actors are always on the
+            can optimise time management ensuring their actors are always on the
             best project for the right film producer
           </dd>
         </div>
@@ -361,25 +361,71 @@
           <figure class="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
             <blockquote class="text-gray-900">
               <p>
-                “Laborum quis quam. Dolorum et ut quod quia. Voluptas numquam
-                delectus nihil. Aut enim doloremque et ipsam.”
+                “Every year, I book 25 actors to work on 500 videos. My volumes
+                will double next year, multiplying the workload by three.”
               </p>
             </blockquote>
             <figcaption class="mt-6 flex items-center gap-x-4">
               <img
                 class="h-10 w-10 rounded-full bg-gray-50"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                src="/rob_comeau.jpg"
                 alt=""
               />
               <div>
-                <div class="font-semibold text-gray-900">Leslie Alexander</div>
-                <div class="text-gray-600">@lesliealexander</div>
+                <div class="font-semibold text-gray-900">
+                  Rob Comeau, Film Producer
+                </div>
               </div>
             </figcaption>
           </figure>
         </div>
 
-        <!-- More testimonials... -->
+        <div class="pt-8 sm:inline-block sm:w-full sm:px-4">
+          <figure class="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
+            <blockquote class="text-gray-900">
+              <p>
+                “I have a pool of 350 actors that I deploy to 1000 shoots a
+                year. The admin is terrifying”
+              </p>
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-x-4">
+              <img
+                class="h-10 w-10 rounded-full bg-gray-50"
+                src="/teri_ritter.jpg"
+                alt=""
+              />
+              <div>
+                <div class="font-semibold text-gray-900">
+                  Teri Ritter, Talent Agent
+                </div>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="pt-8 sm:inline-block sm:w-full sm:px-4">
+          <figure class="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
+            <blockquote class="text-gray-900">
+              <p>
+                “I still get paid by check by my Talent Agency and my invoices
+                are handled in word processing apps. ORCHID B is a game
+                changer.”
+              </p>
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-x-4">
+              <img
+                class="h-10 w-10 rounded-full bg-gray-50"
+                src="/jason_pennell.jpg"
+                alt=""
+              />
+              <div>
+                <div class="font-semibold text-gray-900">
+                  Jason Pennell, Actor
+                </div>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </div>
@@ -413,15 +459,20 @@
       </defs>
     </svg>
   </div>
-  <div class="mx-auto max-w-2xl text-center">
+  <div id="contact" class="mx-auto max-w-2xl text-center">
     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
       Contact us
     </h2>
     <p class="mt-2 text-lg leading-8 text-gray-600">
-      IF you would like to talk to us regarding our products and partnerships please fill the contact form and we will reply within 24 hours.
+      IF you would like to talk to us regarding our products and partnerships
+      please fill the contact form and we will reply within 24 hours.
     </p>
   </div>
-  <form action="#" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20">
+  <form
+    action="https://formsubmit.co/cromano@orchidb.com"
+    method="POST"
+    class="mx-auto mt-16 max-w-xl sm:mt-20"
+  >
     <div class="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-2">
       <div>
         <label
