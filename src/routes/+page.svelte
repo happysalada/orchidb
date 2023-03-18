@@ -1,3 +1,6 @@
+<script lang="ts">
+  let menuOpen = false;
+</script>
 <div class="bg-white">
   <header class="absolute inset-x-0 top-0 z-50">
     <nav
@@ -18,6 +21,7 @@
         <button
           type="button"
           class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+          on:click={() => menuOpen = true}
         >
           <span class="sr-only">Open main menu</span>
           <svg
@@ -49,7 +53,12 @@
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
-    <div class="lg:hidden" role="dialog" aria-modal="true">
+    <div
+      class="lg:hidden"
+      role="dialog"
+      aria-modal="true"
+      class:hidden={!menuOpen}
+    >
       <!-- Background backdrop, show/hide based on slide-over state. -->
       <div class="fixed inset-0 z-50" />
       <div
@@ -64,7 +73,7 @@
               alt=""
             />
           </a>
-          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" on:click={() => menuOpen = false}>
             <span class="sr-only">Close menu</span>
             <svg
               class="h-6 w-6"
@@ -86,34 +95,16 @@
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
               <a
-                href="#"
-                class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Product</a
-              >
-
-              <a
-                href="#"
+                href="#features"
                 class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >Features</a
-              >
-
-              <a
-                href="#"
-                class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Marketplace</a
-              >
-
-              <a
-                href="#"
-                class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Company</a
               >
             </div>
             <div class="py-6">
               <a
-                href="#"
+                href="#contact"
                 class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Log in</a
+                >Contact us</a
               >
             </div>
           </div>
