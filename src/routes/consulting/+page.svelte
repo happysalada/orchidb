@@ -1,20 +1,37 @@
 <script lang="ts">
   import Testimonial from "$lib/Testimonial.svelte";
+  import Faq from "$lib/Faq.svelte";
+  import Footer from "$lib/Footer.svelte";
+  import About from "$lib/About.svelte";
 
   let menuOpen = false;
-  let firstName: string, lastName: string, location: string, company: string, email: string, phone: string, message: string;
+  let firstName: string,
+    lastName: string,
+    location: string,
+    company: string,
+    email: string,
+    phone: string,
+    message: string;
 
   let submitted = false;
   async function contact() {
     submitted = true;
     const url = "https://formsubmit.co/ajax/cromano@orchidb.com";
     const response = await fetch(url, {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
-        'Content-Type': 'application/json', // *For JSON data, use 'application/json'. For form data, use 'application/x-www-form-urlencoded'.
+        "Content-Type": "application/json", // *For JSON data, use 'application/json'. For form data, use 'application/x-www-form-urlencoded'.
         // Add any additional headers if needed
       },
-      body: JSON.stringify({ firstName, lastName, location, company, email, phone, message}), // Convert the JavaScript object to a JSON string
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        location,
+        company,
+        email,
+        phone,
+        message,
+      }), // Convert the JavaScript object to a JSON string
     });
     firstName = "";
     lastName = "";
@@ -25,6 +42,7 @@
     message = "";
   }
 </script>
+
 <div class="bg-white">
   <header class="absolute inset-x-0 top-0 z-50">
     <nav
@@ -34,18 +52,14 @@
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
-          <img
-            class="h-8 w-auto"
-            src="/orchid_b_black.png"
-            alt=""
-          />
+          <img class="h-8 w-auto" src="/orchid_b_black.png" alt="" />
         </a>
       </div>
       <div class="flex lg:hidden">
         <button
           type="button"
           class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-          on:click={() => menuOpen = true}
+          on:click={() => (menuOpen = true)}
         >
           <span class="sr-only">Open main menu</span>
           <svg
@@ -97,7 +111,11 @@
               alt=""
             />
           </a>
-          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" on:click={() => menuOpen = false}>
+          <button
+            type="button"
+            class="-m-2.5 rounded-md p-2.5 text-gray-700"
+            on:click={() => (menuOpen = false)}
+          >
             <span class="sr-only">Close menu</span>
             <svg
               class="h-6 w-6"
@@ -121,14 +139,14 @@
               <a
                 href="#features"
                 class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Features</a
+                on:click={() => (menuOpen = false)}>Features</a
               >
             </div>
             <div class="py-6">
               <a
                 href="#contact"
                 class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >Contact us</a
+                on:click={() => (menuOpen = false)}>Contact us</a
               >
             </div>
           </div>
@@ -172,19 +190,21 @@
         </h1>
         <p class="mt-6 text-lg leading-8 text-gray-600">
           We help agencies, consultancies and professional service firms
-          streamline talent, booking, simplify quoting, automate invoicing, and optimize
-          utilization.
+          streamline talent, booking, simplify quoting, automate invoicing, and
+          optimize utilization.
         </p>
         <p class="mt-6 text-lg leading-8 text-gray-600">
           For small businesses of the future.
         </p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <a
-            href="#"
+            href="https://pwck4nty8me.typeform.com/to/JsJvVWgb#hubspot_utk=xxxxx&hubspot_page_name=xxxxx&hubspot_page_url=xxxxx"
             class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >Get started</a
           >
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
+          <a
+            href="#contact"
+            class="text-sm font-semibold leading-6 text-gray-900"
             >Learn more <span aria-hidden="true">→</span></a
           >
         </div>
@@ -220,7 +240,7 @@
   </div>
 </div>
 
-<div class="bg-white py-24 sm:py-32">
+<div class="bg-white py-24 sm:py-32" id="features">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-2xl lg:text-center">
       <p
@@ -232,10 +252,7 @@
         For small businesses of the future, stop wasting time shuffling tools.
       </p>
     </div>
-    <div
-      id="features"
-      class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl"
-    >
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
       <dl
         class="grid max-w-xl grid-cols-1 gap-y-10 gap-x-8 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
       >
@@ -245,17 +262,16 @@
               class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
             >
               <svg
-                class="h-6 w-6 text-white"
-                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
+                fill="white"
+                class="w-6 h-6"
               >
+                <path d="M19.5 6h-15v9h15V6z" />
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+                  fill-rule="evenodd"
+                  d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v11.25C1.5 17.16 2.34 18 3.375 18H9.75v1.5H6A.75.75 0 006 21h12a.75.75 0 000-1.5h-3.75V18h6.375c1.035 0 1.875-.84 1.875-1.875V4.875C22.5 3.839 21.66 3 20.625 3H3.375zm0 13.5h17.25a.375.375 0 00.375-.375V4.875a.375.375 0 00-.375-.375H3.375A.375.375 0 003 4.875v11.25c0 .207.168.375.375.375z"
+                  clip-rule="evenodd"
                 />
               </svg>
             </div>
@@ -272,26 +288,25 @@
               class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
             >
               <svg
-                class="h-6 w-6 text-white"
-                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
+                fill="white"
+                class="w-6 h-6"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                  d="M4.913 2.658c2.075-.27 4.19-.408 6.337-.408 2.147 0 4.262.139 6.337.408 1.922.25 3.291 1.861 3.405 3.727a4.403 4.403 0 00-1.032-.211 50.89 50.89 0 00-8.42 0c-2.358.196-4.04 2.19-4.04 4.434v4.286a4.47 4.47 0 002.433 3.984L7.28 21.53A.75.75 0 016 21v-4.03a48.527 48.527 0 01-1.087-.128C2.905 16.58 1.5 14.833 1.5 12.862V6.638c0-1.97 1.405-3.718 3.413-3.979z"
+                />
+                <path
+                  d="M15.75 7.5c-1.376 0-2.739.057-4.086.169C10.124 7.797 9 9.103 9 10.609v4.285c0 1.507 1.128 2.814 2.67 2.94 1.243.102 2.5.157 3.768.165l2.782 2.781a.75.75 0 001.28-.53v-2.39l.33-.026c1.542-.125 2.67-1.433 2.67-2.94v-4.286c0-1.505-1.125-2.811-2.664-2.94A49.392 49.392 0 0015.75 7.5z"
                 />
               </svg>
             </div>
             An easy to use collaborative platform
           </dt>
           <dd class="mt-2 text-base leading-7 text-gray-600">
-            Accelerate decision making with your business partners, clients
-            and consultants. Seamless flow of information, messaging and
-            alerts from contract to signature.
+            Accelerate decision making with your business partners, clients and
+            consultants. Seamless flow of information, messaging and alerts from
+            contract to signature.
           </dd>
         </div>
 
@@ -301,26 +316,27 @@
               class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
             >
               <svg
-                class="h-6 w-6 text-white"
-                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
+                fill="white"
+                class="w-6 h-6"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                  d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z"
+                  clip-rule="evenodd"
                 />
               </svg>
             </div>
             Simple access to consultant availability and work scheduling
           </dt>
           <dd class="mt-2 text-base leading-7 text-gray-600">
-            By offering a centralised real time view of consultants schedules, consultancies
-            can optimise bookings ensuring their consultants are always on the
-            best project for the right client
+            By offering a centralised real time view of consultants schedules,
+            consultancies can optimise bookings ensuring their consultants are
+            always on the best project for the right client
           </dd>
         </div>
 
@@ -330,32 +346,32 @@
               class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
             >
               <svg
-                class="h-6 w-6 text-white"
-                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
+                fill="white"
+                class="w-6 h-6"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33"
+                  fill-rule="evenodd"
+                  d="M15.97 2.47a.75.75 0 011.06 0l4.5 4.5a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 11-1.06-1.06l3.22-3.22H7.5a.75.75 0 010-1.5h11.69l-3.22-3.22a.75.75 0 010-1.06zm-7.94 9a.75.75 0 010 1.06l-3.22 3.22H16.5a.75.75 0 010 1.5H4.81l3.22 3.22a.75.75 0 11-1.06 1.06l-4.5-4.5a.75.75 0 010-1.06l4.5-4.5a.75.75 0 011.06 0z"
+                  clip-rule="evenodd"
                 />
               </svg>
             </div>
             Seamless billing and payments
           </dt>
           <dd class="mt-2 text-base leading-7 text-gray-600">
-            As consultants complete their work schedule, clients can immediately sign
-            off the work and expenses generating instant invoices and faster
-            payments.
+            As consultants complete their work schedule, clients can immediately
+            sign off the work and expenses generating instant invoices and
+            faster payments.
           </dd>
         </div>
       </dl>
     </div>
   </div>
 </div>
+
+<Faq />
 
 <div class="bg-white py-24 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -375,21 +391,19 @@
       class="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none"
     >
       <div class="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
-
         <Testimonial
           main="“It’s simple, highly professional and saves me so much time”​"
           secondary="I handle everything in one place and no longer need to use multiple tools just to issue invoices and track payments​"
-          imageSource="/rob_comeau.jpg"
+          imageSource="/cedric_guarnotta.jpg"
           name="Cedric Guarnotta, Founder & CEO, Tulipay, Management Consulting"
         />
 
         <Testimonial
           main="“Finally, an application that works for our clients and subcontractors”​"
           secondary="As a leader of a rapidly scaling small business, admin is always a pain. ORCHID B takes the headache out of contractor and client invoicing.​"
-          imageSource="/teri_ritter.jpg"
+          imageSource="/bertrand_milot.jpg"
           name="Bertrand Milot, Founder & CEO, Bradley & Rollins, Cybersecurity Consulting"
         />
-
       </div>
     </div>
   </div>
@@ -428,8 +442,8 @@
       Contact us
     </h2>
     <p class="mt-2 text-lg leading-8 text-gray-600">
-      IF you would like to talk to us regarding our products and partnerships, investment, or media related topics,
-      please fill the contact form below.
+      IF you would like to talk to us regarding our products and partnerships,
+      investment, or media related topics, please fill the contact form below.
     </p>
   </div>
   <form
@@ -602,3 +616,7 @@
     </div>
   </form>
 </div>
+
+<Footer />
+
+<About />
